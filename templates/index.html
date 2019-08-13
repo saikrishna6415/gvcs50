@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    place order
+{% endblock %}
+
+{% block body %}
+<div class = "wrapper">
+<div class ="mid">
+
+    <h1>PLACE AN ORDER</h1>
+
+    <form action ="{{url_for('book')}} " method ="post">
+
+        <div class ="form-group">
+
+            <select class ="form-control " name = "menu_id">
+
+            {% for menu in menu_list %}
+                <option value="{{ menu['id'] }}"> {{ menu.flavors }} </option>
+            {% endfor %}
+            </select>
+        </div>
+
+        <div class ="form-group">
+            <input class = "form-control" required type="text" name="name" placeholder="Order For">
+        </div>
+
+        <div class ="form-group">
+            <button type="submit" class ="btn btn-primary">PLACE ORDER</button>
+        </div>
+        </form>
+        </div>
+</div>
+{% endblock %}
